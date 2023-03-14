@@ -1,5 +1,7 @@
 package luyenangcao;
+
 import java.util.Scanner;
+
 public class Navba {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -10,6 +12,9 @@ public class Navba {
             System.out.println("***************STUDENT MANAGE***************************");
             System.out.println("1. Show List Student.");
             System.out.println("2. Create Student.");
+            System.out.println("3. Update Student.");
+            System.out.println("4. Delete Student.");
+            System.out.println("5. Sort list.");
             System.out.println("0. Exit.");
             System.out.println("**********************************************************");
 
@@ -49,7 +54,33 @@ public class Navba {
 
                     System.out.println("Thêm mới thành công");
                     break;
+                case 3:
+                    break;
+                case 4:
+                    System.out.println("Nhập id sinh viên cần xóa:");
+                    studentId = sc.nextInt();
+                    sc.nextLine();
 
+                    boolean isFound = false;
+                    for (int i = 0; i < count; i++) {
+                        if (students[i].getStudentId() == studentId) {
+                            isFound = true;
+                            for (int j = i; j < count - 1; j++) {
+                                students[j] = students[j + 1];
+                            }
+                            count--;
+                            break;
+                        }
+                    }
+
+                    if (isFound) {
+                        System.out.println("Đã xóa thành công");
+                    } else {
+                        System.out.println("Không tìm thấy sinh viên");
+                    }
+                    break;
+                case 5:
+                    break;
                 case 0:
                     System.exit(0);
                 default:
