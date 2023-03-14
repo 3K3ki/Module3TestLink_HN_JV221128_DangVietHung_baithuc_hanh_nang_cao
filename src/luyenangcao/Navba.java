@@ -16,7 +16,7 @@ public class Navba {
             System.out.println("4. Delete Student.");
             System.out.println("5. Sort list.");
             System.out.println("0. Exit.");
-            System.out.println("**********************************************************");
+            System.out.println("Mời chọn muc: ");
 
             int choice = sc.nextInt();
             sc.nextLine();
@@ -32,7 +32,7 @@ public class Navba {
                         System.out.println("Student ID: " + students[i].getStudentId());
                         System.out.println("Student Name: " + students[i].getStudentName());
                         System.out.println("Age: " + students[i].getAge());
-                        System.out.println("----------------------------");
+                        System.out.println();
                     }
                     break;
 
