@@ -55,7 +55,28 @@ public class Navba {
                     System.out.println("Thêm mới thành công");
                     break;
                 case 3:
-                    break;
+                    System.out.println("Nhập vào id muốn sửa");
+                    int idEdit = Integer.parseInt(sc.nextLine());
+                    boolean check = false;
+                    for (int i = 0; i < students.length; i++) {
+                        if (students[i] != null) {
+                            if (students[i].getStudentId() == idEdit) {
+                                System.out.println("Nhập tên mới :");
+                                students[i].setStudentName(sc.nextLine());
+                                System.out.println("Nhập tuổi :");
+                                students[i].setAge(Integer.parseInt(sc.nextLine()));
+                                check = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (check) {
+                        System.out.println("cập nhật thành công");
+                    } else {
+                        System.err.println("Khồng tồn tại id cần sửa");
+                    }
+
+                        break;
                 case 4:
                     System.out.println("Nhập id sinh viên cần xóa:");
                     studentId = sc.nextInt();
@@ -72,7 +93,6 @@ public class Navba {
                             break;
                         }
                     }
-
                     if (isFound) {
                         System.out.println("Đã xóa thành công");
                     } else {
@@ -80,6 +100,18 @@ public class Navba {
                     }
                     break;
                 case 5:
+                    for (int i = 0; i < students.length-1 ; i++) {
+                        for (int j = i+1; j < students.length ; j++) {
+                            if(students[i]!= null && students[j]!=null){
+                                if(students[i].getAge()> students[j].getAge()){
+                                    Student temp = students[i];
+                                    students[i] = students[j];
+                                    students[j] = temp;
+                                }
+                            }
+                        }
+                    }
+                    System.out.println("Mảng đã được sắp xếp");
                     break;
                 case 0:
                     System.exit(0);
